@@ -1,8 +1,6 @@
 import uuid
 import boto3
 
-# for pricing, reference: https://aws.amazon.com/s3/pricing/?p=pm&c=s3&z=4
-
 def create_bucket(name, region, bucket_config):
     if region is None or name is None:
         raise Exception('incorrect params')
@@ -18,6 +16,7 @@ def upload_data(key, bucket):
     bucket.upload_fileobj(f, key)
 
 def transfer_data(src_bucket_name, src_key, dst_bucket, dst_key):
+    # for reference on AWS data transfer: https://aws.amazon.com/blogs/architecture/overview-of-data-transfer-costs-for-common-architectures/
     dst_bucket.copy(
         {
             'Bucket': src_bucket_name, 
@@ -36,6 +35,7 @@ if __name__ == '__main__':
     destination_region = 'eu-west-1'
 
     # determined by the destination region
+    # for pricing, reference: https://aws.amazon.com/s3/pricing/?p=pm&c=s3&z=4
     perGBtransfercost = 0.02
 
     # list buckets
