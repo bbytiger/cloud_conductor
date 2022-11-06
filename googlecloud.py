@@ -1,7 +1,7 @@
 import uuid
 from google.cloud import storage
 
-def create_bucket(bucket_name, region):
+def create_bucket(storage_client, bucket_name, region):
     bucket = storage_client.bucket(bucket_name)
     bucket.storage_class = 'COLDLINE'
     new_bucket = storage_client.create_bucket(bucket, location=region)
@@ -58,8 +58,8 @@ if __name__ == '__main__':
         print(bucket.name)
 
     # create src and dst buckets
-    src_bucket = create_bucket(src_bucket_name, source_region)
-    dst_bucket = create_bucket(dst_bucket_name, destination_region)
+    src_bucket = create_bucket(storage_client, src_bucket_name, source_region)
+    dst_bucket = create_bucket(storage_client, dst_bucket_name, destination_region)
 
     # upload to source bucket (ingress)
     upload_data(src_key, src_bucket)
