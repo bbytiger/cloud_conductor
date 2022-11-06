@@ -5,3 +5,6 @@
 3. transfer between AWS to GCP
 4. transfer between GCP to AWS
 5. transfer between AWS to GCP to AWS (diff regions)
+
+running the script will always output the estimated cost
+add a flag to actually perform the action
