@@ -1,0 +1,7 @@
+5 experiments:
+
+1. transfer between AWS itself
+2. transfer between GCP itself
+3. transfer between AWS to GCP
+4. transfer between GCP to AWS
+5. transfer between AWS to GCP to AWS (diff regions)
