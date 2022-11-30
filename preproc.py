@@ -1,6 +1,4 @@
-import tensorflow as tf
 from tensorflow.keras.datasets import mnist
-(x_train, y_train), (x_test, y_test) = mnist.load_data()
 import numpy as np
 from scipy.ndimage.interpolation import shift
 import time
@@ -10,8 +8,6 @@ def shift_image(image, dx, dy):
     shifted_image = shift(image, [dy, dx], cval=0, mode="constant")
     return shifted_image
 
-X_train_augmented = [image for image in x_train]
-y_train_augmented = [image for image in y_train]
 
 # for dx, dy in ((1,0), (-1,0), (0,1), (0,-1)):
 #      for image, label in zip(x_train, y_train):
@@ -21,12 +17,9 @@ y_train_augmented = [image for image in y_train]
 
 # run above for loop in parallel
 
-X_train_augmented = np.array(X_train_augmented)
-y_train_augmented = np.array(y_train_augmented)
-
 import multiprocessing as mp
 
-def run_with_ncpu(ncpu):
+def run_with_ncpu(ncpu, X_train_augmented):
     pool = mp.Pool(ncpu)
     # start timer
     start = time.time()
@@ -51,7 +44,13 @@ def run_with_ncpu(ncpu):
 
 if __name__ == '__main__':
     max_cpu = 8
+    (x_train, y_train), (x_test, y_test) = mnist.load_data()
+    X_train_augmented = [image for image in x_train]
+    y_train_augmented = [image for image in y_train]
+    X_train_augmented = np.array(X_train_augmented)
+    y_train_augmented = np.array(y_train_augmented)
+
     results = []
     for i in range(1, max_cpu+1):
-        results.append(run_with_ncpu(i))
+        results.append(run_with_ncpu(i, X_train_augmented))
     print(results)
