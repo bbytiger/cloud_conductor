@@ -27,7 +27,7 @@ y_train_augmented = np.array(y_train_augmented)
 import multiprocessing as mp
 
 # apply shift image function to each image in x_train in parallel
-
+# https://towardsdatascience.com/improving-accuracy-on-mnist-using-data-augmentation-b5c38eb5a903
 
 if __name__ == '__main__':
     pool = mp.Pool(4)
