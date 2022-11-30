@@ -26,11 +26,8 @@ y_train_augmented = np.array(y_train_augmented)
 
 import multiprocessing as mp
 
-# apply shift image function to each image in x_train in parallel
-# https://towardsdatascience.com/improving-accuracy-on-mnist-using-data-augmentation-b5c38eb5a903
-
-if __name__ == '__main__':
-    pool = mp.Pool(4)
+def run_with_ncpu(ncpu):
+    pool = mp.Pool(ncpu)
     # start timer
     start = time.time()
     # with mp.Pool() as pool:
@@ -47,3 +44,14 @@ if __name__ == '__main__':
     # end timer
     end = time.time()
     print(end - start)
+    return end - start
+
+# apply shift image function to each image in x_train in parallel
+# https://towardsdatascience.com/improving-accuracy-on-mnist-using-data-augmentation-b5c38eb5a903
+
+if __name__ == '__main__':
+    max_cpu = 8
+    results = []
+    for i in range(1, max_cpu+1):
+        results.append(run_with_ncpu(i))
+    print(results)
