@@ -45,11 +45,13 @@ def run_with_ncpu(ncpu, X_train_augmented):
 if __name__ == '__main__':
     max_cpu = 8
     (x_train, y_train), (x_test, y_test) = mnist.load_data()
+    print("finished loading mnist")
     X_train_augmented = [image for image in x_train]
     y_train_augmented = [image for image in y_train]
     X_train_augmented = np.array(X_train_augmented)
     y_train_augmented = np.array(y_train_augmented)
 
+    print("starting results collection")
     results = []
     for i in range(1, max_cpu+1):
         results.append(run_with_ncpu(i, X_train_augmented))
