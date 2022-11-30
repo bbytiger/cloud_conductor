@@ -2,3 +2,5 @@ __pycache__/
 *.csv
 venv/
 google-cloud-sdk/
+models/
+.DS_Store

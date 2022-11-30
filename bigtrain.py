@@ -333,21 +333,29 @@ lr_decay = tf.keras.callbacks.LearningRateScheduler(
 
 """### Train and validate the model"""
 
+def train_and_validate():
+  start = time.time()
+  EPOCHS = 10
+  steps_per_epoch = 60000//BATCH_SIZE  # 60,000 items in this dataset
+  print("Steps per epoch: ", steps_per_epoch)
+    
+  history = model.fit(training_dataset,
+                      steps_per_epoch=steps_per_epoch, epochs=EPOCHS,
+                      callbacks=[lr_decay])
 
-start = time.time()
-EPOCHS = 10
-steps_per_epoch = 60000//BATCH_SIZE  # 60,000 items in this dataset
-print("Steps per epoch: ", steps_per_epoch)
-  
-history = model.fit(training_dataset,
-                    steps_per_epoch=steps_per_epoch, epochs=EPOCHS,
-                    callbacks=[lr_decay])
+  final_stats = model.evaluate(validation_dataset, steps=1)
+  print("Validation accuracy: ", final_stats[1])
 
-final_stats = model.evaluate(validation_dataset, steps=1)
-print("Validation accuracy: ", final_stats[1])
+  end = time.time()
+  print("Training time: ", end-start)
+  return end-start
 
-end = time.time()
-print("Training time: ", end-start)
+times = []
+for i in range(10):
+  print(i)
+  times.append(train_and_validate())
+
+print(times)
 
 """### Visualize predictions"""
 
