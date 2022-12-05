@@ -21,7 +21,7 @@ This Python script optimization algorithm takes in as input:
 """
 Due to the restrictions of linear and integer programming in Python packages, this optimization problem is
 modeled as a Constraint Satisfaction Problem. The algorithm below performs an exhaustive search on the state space, requiring
-a worst case runtime of O(N^M), depending on the number of tasks and cloud providers to choose from. A heuristic is used
+a worst case runtime of O(N^M), depending on the number of tasks and cloud providers to choose from. A simple heuristic is used
 to truncate operations if the objective value is worse than one already found. We assume this algorithm is will useful because in most cases
 we would expect that the number of tasks and number of cloud providers are relatively small.
 """

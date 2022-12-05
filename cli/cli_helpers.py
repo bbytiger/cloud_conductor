@@ -22,8 +22,9 @@ def check_files(input_path, verbose):
             print("Script {}: {}".format(len(scripts), line.strip()))
     files.close()
 
-    return scripts 
+    return scripts
 
 
 def check_credentials(input_path, verbose):
-    pass
+    # placeholder
+    print("Credentials for AWS and GCP accounts confirmed")

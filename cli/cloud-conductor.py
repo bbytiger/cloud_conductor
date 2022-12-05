@@ -27,6 +27,9 @@ CLI_COLORS = {'b':"\033[0;30m",
               'none': "\033[0m"}
 
 
+def linebreak():
+    print("*"*80)
+
 # Create the parser
 my_parser = argparse.ArgumentParser(prog='cloud-conductor',
                                     description="Specify a list of files to run on GCP or AWS; cloud-conductor will optimize for cost. ")
@@ -59,11 +62,13 @@ args = my_parser.parse_args()
 # helper functions for assertions
 input_path = args.Files
 scripts = check_files(input_path, verbose=args.verbose)
+linebreak()
 
 input_path = args.Credentials
 credentials = check_credentials(input_path, verbose=args.verbose)
+linebreak()
 
-steps, estimated_cost = find_optimal_path(scripts, credentials)
+steps, estimated_cost = find_optimal_path(scripts, credentials, verbose=args.verbose)
 
 print('Execution plan: \n')
 for step in steps:
@@ -71,11 +76,13 @@ for step in steps:
 print(CLI_COLORS['none'])
 print("Total estimated cost: " + str(estimated_cost))
 print('\n')
+linebreak()
 
 args.confirmation = input('Please confirm execution plan.\nY/n: ')
 
 if args.confirmation != 'Y' and args.confirmation != 'y':
     print('Execution plan terminated')
     sys.exit()
-
+    
+linebreak()
 print('Initializing execution... ')
