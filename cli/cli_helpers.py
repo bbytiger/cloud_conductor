@@ -9,7 +9,7 @@ def check_files(input_path, verbose):
         sys.exit()
 
     files = open(input_path, 'r')
-    scripts = 0
+    scripts = []
     while True:
         line = files.readline().strip()
         if not line:
@@ -17,10 +17,12 @@ def check_files(input_path, verbose):
         if not os.path.exists(line):
             print('One of the files specified in [' + input_path + '] does not exist. ')
             sys.exit()
-        scripts += 1
+        scripts.append(line)
         if verbose:
-            print("Script {}: {}".format(scripts, line.strip()))
+            print("Script {}: {}".format(len(scripts), line.strip()))
     files.close()
+
+    return scripts 
 
 
 def check_credentials(input_path, verbose):

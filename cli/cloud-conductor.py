@@ -16,6 +16,16 @@ import os
 import sys
 
 from cli_helpers import *
+from optimizer import *
+
+
+CLI_COLORS = {'b':"\033[0;30m",
+              'r': "\033[0;31m",
+              'g': "\033[0;32m",
+              'y': "\033[0;33m",
+              'w': "\033[0;37m",
+              'none': "\033[0m"}
+
 
 # Create the parser
 my_parser = argparse.ArgumentParser(prog='cloud-conductor',
@@ -45,10 +55,27 @@ my_parser.add_argument('-v',
 # Execute the parse_args() method
 args = my_parser.parse_args()
 
-input_path = args.Files
 
-check_files(input_path, verbose=args.verbose)
+# helper functions for assertions
+input_path = args.Files
+scripts = check_files(input_path, verbose=args.verbose)
 
 input_path = args.Credentials
+credentials = check_credentials(input_path, verbose=args.verbose)
 
-check_credentials(input_path, verbose=args.verbose)
+steps, estimated_cost = find_optimal_path(scripts, credentials)
+
+print('Execution plan: \n')
+for step in steps:
+    print(CLI_COLORS['y'] + step[0] + " --> " + CLI_COLORS['g'] + step[1])
+print(CLI_COLORS['none'])
+print("Total estimated cost: " + str(estimated_cost))
+print('\n')
+
+args.confirmation = input('Please confirm execution plan.\nY/n: ')
+
+if args.confirmation != 'Y' and args.confirmation != 'y':
+    print('Execution plan terminated')
+    sys.exit()
+
+print('Initializing execution... ')
