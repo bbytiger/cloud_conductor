@@ -1,0 +1,1213 @@
+{
+    "skus": [
+      {
+        "name": "services/E000-3F24-B8AA/skus/0B52-49C9-B565",
+        "skuId": "0B52-49C9-B565",
+        "description": "Tpu-v2 Pod Accelerator Europe",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "europe-west1",
+          "europe-west4"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "6",
+                    "nanos": 0
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "europe-west4"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/1364-4AA9-9163",
+        "skuId": "1364-4AA9-9163",
+        "description": "Tpu-v3 Preemptible Pod Accelerator Asia",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "asia-east1",
+          "asia-southeast1"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "6",
+                    "nanos": 960000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "asia-east1"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/1949-424A-8DE6",
+        "skuId": "1949-424A-8DE6",
+        "description": "Tpu-v3 Pod Accelerator Asia",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "asia-east1",
+          "asia-southeast1"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "8",
+                    "nanos": 0
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "asia-east1"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/1C12-421E-AFA8",
+        "skuId": "1C12-421E-AFA8",
+        "description": "Tpu-v2 Preemptible Pod Accelerator Europe",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "europe-west1",
+          "europe-west4"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "4",
+                    "nanos": 950000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "europe-west4"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/1F83-4D15-B86F",
+        "skuId": "1F83-4D15-B86F",
+        "description": "Tpu-v3 Accelerator Europe",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "europe-west1",
+          "europe-west4"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "8",
+                    "nanos": 800000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "europe-west4"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/3249-CC77-E7B1",
+        "skuId": "3249-CC77-E7B1",
+        "description": "Tpu-v4 Preemptible Pod Accelerator USA",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "us-central2"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "3",
+                    "nanos": 880000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google"
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/3B3D-4CB4-AECC",
+        "skuId": "3B3D-4CB4-AECC",
+        "description": "Tpu-v2 Accelerator USA",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "us-central1",
+          "us-east1",
+          "us-west1"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "4",
+                    "nanos": 500000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "us-central1"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/427F-4734-9688",
+        "skuId": "427F-4734-9688",
+        "description": "Tpu-v2 Pod Accelerator USA",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "us-central1",
+          "us-east1",
+          "us-west1"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "6",
+                    "nanos": 0
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "us-central1"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/445B-4578-8D69",
+        "skuId": "445B-4578-8D69",
+        "description": "Tpu-v3 Preemptible Pod Accelerator USA",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "us-central1"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "6",
+                    "nanos": 0
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "us-central1"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/4C2D-4AD9-9858",
+        "skuId": "4C2D-4AD9-9858",
+        "description": "Tpu-v2 Preemptible Pod Accelerator USA",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "us-central1"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "4",
+                    "nanos": 500000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "us-central1"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/4C64-4929-B456",
+        "skuId": "4C64-4929-B456",
+        "description": "Tpu-v2 Accelerator Asia",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "asia-east1",
+          "asia-southeast1"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "5",
+                    "nanos": 220000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "asia-east1"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/513C-454E-B336",
+        "skuId": "513C-454E-B336",
+        "description": "Tpu-v3 Pod Accelerator USA",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "us-central1",
+          "us-east1",
+          "us-west1"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "8",
+                    "nanos": 0
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "us-central1"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/6B43-42AC-A0CD",
+        "skuId": "6B43-42AC-A0CD",
+        "description": "Tpu-v3 Preemptible Accelerator Asia",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "asia-east1",
+          "asia-southeast1"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "2",
+                    "nanos": 784000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "asia-east1"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/6D20-4A1B-9999",
+        "skuId": "6D20-4A1B-9999",
+        "description": "Tpu-v3 Accelerator USA",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "us-central1",
+          "us-east1",
+          "us-west1"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "8",
+                    "nanos": 0
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "us-central1"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/7326-4DBC-A4D3",
+        "skuId": "7326-4DBC-A4D3",
+        "description": "Tpu-v2 Pod Accelerator Asia",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "asia-east1",
+          "asia-southeast1"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "6",
+                    "nanos": 0
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "asia-east1"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/8238-442C-834F",
+        "skuId": "8238-442C-834F",
+        "description": "Tpu-v3 Preemptible Accelerator USA",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "us-central1"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "2",
+                    "nanos": 400000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "us-central1"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/8321-4169-9FEB",
+        "skuId": "8321-4169-9FEB",
+        "description": "Tpu-v2 Accelerator Europe",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "europe-west1",
+          "europe-west4"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "4",
+                    "nanos": 950000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "europe-west4"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/8A0A-3C45-1D33",
+        "skuId": "8A0A-3C45-1D33",
+        "description": "Tpu-v4 Pod Accelerator USA",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "us-central2"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "12",
+                    "nanos": 880000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google"
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/982D-4893-AC36",
+        "skuId": "982D-4893-AC36",
+        "description": "Tpu-v3 Accelerator Asia",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "asia-east1",
+          "asia-southeast1"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "9",
+                    "nanos": 280000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "asia-east1"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/98E1-47BF-A8A0",
+        "skuId": "98E1-47BF-A8A0",
+        "description": "Tpu-v2 Preemptible Accelerator USA",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "us-central1"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "1",
+                    "nanos": 350000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "us-central1"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/CBD6-4109-8232",
+        "skuId": "CBD6-4109-8232",
+        "description": "Tpu-v3 Pod Accelerator Europe",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "europe-west1",
+          "europe-west4"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "8",
+                    "nanos": 0
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "europe-west4"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/CD3F-4844-A3F5",
+        "skuId": "CD3F-4844-A3F5",
+        "description": "Tpu-v2 Preemptible Accelerator Asia",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "asia-east1",
+          "asia-southeast1"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "1",
+                    "nanos": 566000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "asia-east1"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/D3AA-4D87-88E3",
+        "skuId": "D3AA-4D87-88E3",
+        "description": "Tpu-v2 Preemptible Pod Accelerator Asia",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "asia-east1",
+          "asia-southeast1"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "5",
+                    "nanos": 220000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "asia-east1"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/DB52-474C-B28F",
+        "skuId": "DB52-474C-B28F",
+        "description": "Tpu-v3 Preemptible Pod Accelerator Europe",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "europe-west1",
+          "europe-west4"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "6",
+                    "nanos": 600000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "europe-west4"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/EB17-4A02-9073",
+        "skuId": "EB17-4A02-9073",
+        "description": "Tpu-v3 Preemptible Accelerator Europe",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "europe-west1",
+          "europe-west4"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "2",
+                    "nanos": 640000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "europe-west4"
+          ]
+        }
+      },
+      {
+        "name": "services/E000-3F24-B8AA/skus/FC6D-483B-AF75",
+        "skuId": "FC6D-483B-AF75",
+        "description": "Tpu-v2 Preemptible Accelerator Europe",
+        "category": {
+          "serviceDisplayName": "Cloud TPU",
+          "resourceFamily": "Compute",
+          "resourceGroup": "TPU",
+          "usageType": "OnDemand"
+        },
+        "serviceRegions": [
+          "europe-west1",
+          "europe-west4"
+        ],
+        "pricingInfo": [
+          {
+            "summary": "",
+            "pricingExpression": {
+              "usageUnit": "h",
+              "displayQuantity": 1,
+              "tieredRates": [
+                {
+                  "startUsageAmount": 0,
+                  "unitPrice": {
+                    "currencyCode": "USD",
+                    "units": "1",
+                    "nanos": 485000000
+                  }
+                }
+              ],
+              "usageUnitDescription": "hour",
+              "baseUnit": "s",
+              "baseUnitDescription": "second",
+              "baseUnitConversionFactor": 3600
+            },
+            "currencyConversionRate": 1,
+            "effectiveTime": "2022-12-08T12:39:42.443Z"
+          }
+        ],
+        "serviceProviderName": "Google",
+        "geoTaxonomy": {
+          "type": "REGIONAL",
+          "regions": [
+            "europe-west4"
+          ]
+        }
+      }
+    ],
+    "nextPageToken": ""
+  }
