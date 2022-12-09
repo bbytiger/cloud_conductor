@@ -1,0 +1,22 @@
+{
+    "Estimates": [
+        {
+            "hardware": "CPU",
+            "data_units": "GB",
+            "time_units": "s",
+            "value": 0.008
+        },
+        {
+            "hardware": "GPU",
+            "data_units": "GB",
+            "time_units": "s",
+            "value": 0.004
+        },
+        {
+            "hardware": "TPU",
+            "data_units": "GB",
+            "time_units": "s",
+            "value": 0.004
+        }
+    ]
+}

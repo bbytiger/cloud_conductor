@@ -7,6 +7,8 @@ load_dotenv()
 
 API_KEY = os.getenv('GCP_API_KEY')
 
+compute_engine_metadata_path = "./static/cost_lookup/gcp_compute_engine.json"
+
 skus = []
 nextPageToken = ""
 while 1:
@@ -22,5 +24,5 @@ while 1:
         break
     nextPageToken = js["nextPageToken"]
 
-with open("gcp_compute_engine.json", "w") as f:
+with open(compute_engine_metadata_path, "w") as f:
     json.dump(skus, f, indent=4)
