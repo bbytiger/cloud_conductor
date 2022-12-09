@@ -11,7 +11,8 @@ def estimate_preprocessing(scriptname, datasize, epoch_count=None):
     # roughly 10s execution time with 10 CPUs --> 100s with 1 CPU --> 8MB of IO /s with 1 CPU
     pass
 
-
 if __name__ == "__main__":
     # in practice, compute does not scale linearly because of scheduling overhead
     # here, we assume linear scaling based on benchmarks
+
+    # for completeness, the final storage time will need to be provided by the user

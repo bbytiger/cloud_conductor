@@ -1,7 +1,7 @@
 import boto3
 import uuid
 
-regionname = "us-east1"
+regionname = "us-east-1"
 keyname = 'tmp_cloud_conduct_{}'.format(uuid.uuid4())
 imageid = 'ami-0574da719dca65348' # default set to ubuntu
 instancetype = 't2.micro'
@@ -23,6 +23,15 @@ ec2_config = {
 response = ec2.run_instances(**ec2_config)
 print(response)
 
-# response = ec2.delete_key_pair(KeyName=keyname)
-# print(response)
+instanceId = response["Instances"][0]["InstanceId"]
+
+response = ec2.terminate_instances(
+    InstanceIds=[instanceId]
+)
+print(response)
+
+response = ec2.delete_key_pair(KeyName=keyname)
+print(response)
+
+
 
