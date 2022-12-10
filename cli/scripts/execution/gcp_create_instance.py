@@ -1,3 +1,6 @@
+import sys
+from typing import List
+
 from google.cloud import compute_v1
 from google.api_core.extended_operation import ExtendedOperation
 
@@ -144,11 +147,13 @@ def create_instance(
 if __name__ == "__main__":
     zone = 'us-east1-b'
     family = 'ubuntu-2204-lts'
-    imageProject = 'ubuntu-os-cloud'
-    project = 'grounded-datum-367811'
+    image_project = 'ubuntu-os-cloud'
+    project_id = 'grounded-datum-367811' 
+    instance_name = 'cs243-test-instance'  
 
     newest_ubuntu = get_image_from_family(
-        project=imageProject, family=family
+        project=image_project, family=family
     )
     disk_type = f"zones/{zone}/diskTypes/pd-standard"
     disks = [disk_from_image(disk_type, 10, True, newest_ubuntu.self_link)]
+    create_instance(project_id, zone, instance_name, disks)
