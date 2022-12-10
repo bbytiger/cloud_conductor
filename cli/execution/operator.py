@@ -33,11 +33,11 @@ class ServerSSHOperator:
             host=host, username=username, private_key=privkey_path, cnopts=cnopts
         )
 
-    def upload_file(self, localpath, path):
-        self.sftp.put(localpath, path)
+    def upload_file(self, localpath, remotepath):
+        self.sftp.put(localpath, remotepath)
 
-    def download_file(self, remotepath, path):
-        self.sftp.get(remotepath, path, preserve_mtime=True)
+    def download_file(self, remotepath, localpath):
+        self.sftp.get(remotepath, localpath, preserve_mtime=True)
 
     def pull_scripts(self):
         return self.execute_script("pull_scripts_dir.sh")
