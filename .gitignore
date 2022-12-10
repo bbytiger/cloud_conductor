@@ -5,3 +5,5 @@ google-cloud-sdk/
 models/
 .DS_Store
 .env
+client_secret_*.json
+*.pem

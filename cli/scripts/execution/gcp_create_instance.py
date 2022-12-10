@@ -1,8 +1,11 @@
-import sys
+import sys, os
 from typing import List
 
+import requests
 from google.cloud import compute_v1
 from google.api_core.extended_operation import ExtendedOperation
+
+import keygen
 
 def disk_from_image(
     disk_type: str,
@@ -136,6 +139,7 @@ def create_instance(
     request.zone = zone
     request.project = project_id
     request.instance_resource = instance
+
     
     # verify request and return
     print(f"Creating the {instance_name} instance in {zone}...")
@@ -144,16 +148,48 @@ def create_instance(
     print(f"Instance {instance_name} created.")
     return instance_client.get(project=project_id, zone=zone, instance=instance_name)
 
+def add_ssh_key(instance, gcpkey, username, pubkey=None):
+    privkey = None
+    if pubkey is None:
+        pubkey, privkey = keygen.create_key()
+    auth = { 
+        "Authorization": "Bearer {}".format(gcpkey)
+    }
+    metadata_fingerprint = instance.metadata.fingerprint
+    setMetadataAction = "{}/setMetadata".format(instance.self_link)
+    metadata = {
+        "items": [
+            {
+                "key": "ssh-keys",
+                "value": "{}:{}".format(username, pubkey)
+            }
+        ],
+        "fingerprint": metadata_fingerprint
+    }
+    res = requests.post(setMetadataAction, headers=auth, json=metadata)
+    print(res.status_code)
+    print(res.content)
+    return privkey
+
 if __name__ == "__main__":
     zone = 'us-east1-b'
     family = 'ubuntu-2204-lts'
     image_project = 'ubuntu-os-cloud'
     project_id = 'grounded-datum-367811' 
     instance_name = 'cs243-test-instance'  
+    username = 'cs243test'
 
     newest_ubuntu = get_image_from_family(
         project=image_project, family=family
     )
     disk_type = f"zones/{zone}/diskTypes/pd-standard"
     disks = [disk_from_image(disk_type, 10, True, newest_ubuntu.self_link)]
-    create_instance(project_id, zone, instance_name, disks)
+    instance = create_instance(project_id, zone, instance_name, disks)
+    
+    from dotenv import load_dotenv
+    load_dotenv()
+    API_KEY = os.getenv('GCP_COMPUTE_API_KEY')
+    privkey = add_ssh_key(instance, API_KEY)
+    print(privkey)
+    hostip = instance.network_interfaces[0].access_configs[0].nat_i_p
+    print(hostip)
