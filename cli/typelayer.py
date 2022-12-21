@@ -76,6 +76,3 @@ class Pipeline:
             stage = self.stages[i]
             stage.run()
             assert stage.status == StageProgress.FINISHED
-
-    def save_pipeline(self):
-        pass

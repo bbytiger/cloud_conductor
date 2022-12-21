@@ -1,3 +1,5 @@
+import datetime
+
 import click
 import tabulate
 
@@ -9,20 +11,19 @@ class CliManager:
         self.path = path
         self.pipelines = self.load()
 
-    def append_pipeline(self, pipeline):
-        self.pipelines.append(pipeline)
+    def append_pipeline(self, pipeline: typelayer.Pipeline):
+        self.pipelines.append(pipeline.transform())
 
-    def remove_pipeline(self, pipeline):
+    def remove_pipeline(self, pipeline: typelayer.Pipeline):
         pass
 
     def sync(self):
-        # check that pipelines match
+        # write to pipeline config file
         pass
 
     def load(self):
         # load from config file
-
-    
+        pass
 
 @click.group()
 @click.option('--config_path', default="./cache/config")
@@ -47,14 +48,31 @@ def list_pipelines(ctx):
     )
 
 @cli.command()
+@click.option('--name', required=True)
 @click.option('--stagecount', default=1)
 @click.pass_context
-def create_pipeline(ctx):
+def create_pipeline(ctx, name, stagecount):
 
     def create_stage():
-        pass
+        # TODO: running some optimizations to give user suggestions
+        stage_type = click.prompt(
+            "Choose stage type: (PREPROCESSING / TRAINING / DATA_TRANSFER)"
+        )
+        machine_type = click.prompt(
+            'Enter your preferred machine type: ', default="a1.medium"
+        )
+        script_path = click.prompt("Enter script path: ")
+        source_data = click.prompt("Enter source data path: ")
+        location_constraint = click.prompt("Enter location constraint: (RETURN if none) ")
+        provider = click.prompt("Enter provider preference: (AWS/GCP, RETURN if none) ")
+        return typelayer.Stage()
 
-
+    initial_location = click.prompt("Enter an initial location: ")
+    pipeline = typelayer.Pipeline(stagecount, name, initial_location, datetime.datetime.now())
+    for _ in range(stagecount):
+        pipeline.add_stage(create_stage())
+    ctx.object['MANAGER'].append_pipeline(pipeline)
+    ctx.object['MANAGER'].sync()
 
 @cli.command()
 def update_pipeline():
