@@ -16,5 +16,10 @@ class Serializer:
     def read_pyobj(objpath):
         if not os.path.exists(objpath):
             raise Exception("Failed to read serialized obj: path does not exist.")
-        with open('data', 'rb') as f:
+        with open(objpath, 'rb') as f:
             return pickle.load(f)
+
+    @classmethod
+    def remove_pyobj(objpath):
+        if os.path.exists(objpath):
+            os.remove(objpath)
