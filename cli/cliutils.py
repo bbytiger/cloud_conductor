@@ -1,7 +1,27 @@
 import os
+import pathlib
 import pickle
 
-class Serializer:
+import click
+
+class CliUtils:
+
+    @classmethod
+    def prompt_until_success(message, process_f):
+        while 1:
+            try:
+                user_input = click.prompt(message)
+                return process_f(user_input)
+            except Exception as e:
+                click.echo(e)
+                click.echo("Please try again.")
+
+    @classmethod
+    def validate_path(path):
+        if pathlib.Path(path).exists():
+            return path
+        else:
+            raise Exception("Path does not exist.")
 
     @classmethod
     def write_pyobj(obj, objpath):

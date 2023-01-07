@@ -1,11 +1,12 @@
 import datetime
 import pathlib
+import subprocess
 
 import click
 import tabulate
 
+from cliutils import CliUtils
 import typelayer
-import serializer
 
 class CliManager:
     def __init__(self, parent_dir):
@@ -21,7 +22,7 @@ class CliManager:
     def append_pipeline(self, pipeline: typelayer.Pipeline):
         self.pipelines.append(pipeline.transform())
         uuid_path = self.path / pipeline.uuid
-        serializer.Serializer.write_pyobj(pipeline, uuid_path)
+        CliUtils.write_pyobj(pipeline, uuid_path)
 
     def remove_pipeline(self, pipeline_name: str):
         uuid_path = None
@@ -30,39 +31,22 @@ class CliManager:
                 uuid_path = self.path / pipeline.uuid
                 self.pipelines.remove(pipeline)
         if not uuid_path is None:
-            serializer.Serializer.remove_pyobj(uuid_path)
+            CliUtils.remove_pyobj(uuid_path)
 
     def sync(self):
         # write to pipeline config file
         config = self.path / 'config'
-        serializer.Serializer.write_pyobj(self.pipelines, config)
+        CliUtils.write_pyobj(self.pipelines, config)
 
     def load(self):
         # load from config file
         config = self.path / 'config'
         if config.exists():
-            self.pipelines = serializer.Serializer.read_pyobj(config)
+            self.pipelines = CliUtils.read_pyobj(config)
         else:
             self.pipelines = []
 
-class CliUtils:
 
-    @classmethod
-    def prompt_until_success(message, process_f):
-        while 1:
-            try:
-                user_input = click.prompt(message)
-                return process_f(user_input)
-            except Exception as e:
-                click.echo(e)
-                click.echo("Please try again.")
-
-    @classmethod
-    def validate_path(path):
-        if pathlib.Path(path).exists():
-            return path
-        else:
-            raise Exception("Path does not exist.")
 
 @click.group()
 @click.option('--clidata_path', default="./cache")
@@ -85,6 +69,66 @@ def list_pipelines(ctx):
             headers=["NAME", "STAGE COUNT", "CREATED AT", "ID"]
         )
     )
+
+@cli.command()
+@click.option('--csp', required=False)
+@click.pass_context
+def configure(ctx, csp):
+    def onboard_aws():
+        click.echo("Onboarding AWS...")
+        subprocess.check_output(
+            "./scripts/aws.sh", 
+            stderr=subprocess.STDOUT, 
+            shell=True
+        )
+        click.echo("Successfully installed AWS CLI.")
+        click.echo("Retrieve access credentials from AWS IAM Dashboard")
+        access_key_id = click.prompt("Enter access key ID:")
+        secret_access_key = click.prompt("Enter secret access key:")
+        subprocess.run(
+            ["aws configure"], 
+            input=f'{access_key_id}\n{secret_access_key}\nNone\nNone', 
+            capture_output=True, 
+            text=True
+        )
+        click.echo("Finished onboarding AWS.")
+
+    def onboard_gcp():
+        click.echo("Onboarding GCP...")
+        subprocess.check_output(
+            "./scripts/gcp.sh", 
+            stderr=subprocess.STDOUT, 
+            shell=True
+        )
+        click.echo("Successfully installed GCP SDK.")
+        click.echo("Retrieve service account JSON key file from GCP IAM Dashboard")
+        gcp_sdk_root = "./google-cloud-sdk/bin/gcloud"
+        json_path = CliUtils.prompt_until_success(
+            "Enter path to JSON key file: ",
+            lambda user_inp: CliUtils.validate_path(user_inp)
+        )
+        activate_service_account = (
+            f"{gcp_sdk_root} auth activate-service-account --key-file={json_path}"
+        )
+        subprocess.run(
+            [activate_service_account],
+            capture_output=True, 
+        )
+        click.echo("Finished onboarding GCP.")
+
+    try:
+        csp = typelayer.ProviderType[str(csp).upper()]
+        if csp == typelayer.ProviderType.AWS:
+            onboard_aws()
+        elif csp == typelayer.ProviderType.GCP:
+            onboard_gcp()
+        else: 
+            onboard_aws()
+            onboard_gcp()
+    except subprocess.CalledProcessError as e:
+        click.echo(e)
+        click.echo("Please input your credentials correctly.")
+
 
 @cli.command()
 @click.option('--name', required=True)
@@ -154,6 +198,16 @@ def remove_pipeline(ctx, name):
     else:
         ctx.object['MANAGER'].remove_pipeline(name)
         click.echo("Successfully removed pipeline.")
+
+@cli.command()
+@click.option('--name', required=True)
+@click.option('--opt_name', required=True)
+@click.option('--opt_strategy', required=False)
+@click.pass_context
+def optimize_pipeline(ctx, name):
+    # search for optimizations
+    # if optimizations exist, create new pipeline with optimized name
+    pass
 
 @cli.command()
 @click.option('--name', required=True)
