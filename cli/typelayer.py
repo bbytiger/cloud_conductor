@@ -2,6 +2,7 @@ import enum
 import uuid
 
 from cloud_conductor.execution.gcp import GCPInstanceDriver
+from cloud_conductor.execution.aws import AWSInstanceDriver
 
 
 class CloudConductorEnum(enum.Enum):
@@ -66,22 +67,35 @@ class Stage:
 
     def setup(self):
         if self.provider_constraint == ProviderType.GCP:
-            # create and run on GCP
+            # create and set up on GCP
             gcp_config = self.ctx_manager.gcp_config
             driver = GCPInstanceDriver(
+                rsaKeyManager=self.ctx_manager.rsa_key_manager,
                 project_id=gcp_config["project_id"],
                 api_key=gcp_config["api_key"],
                 zone=self.location_constraint,
             )
             driver.attach_disk_from_size(20)
             driver.create_instance_ready_for_ssh(
-                rsaKeyManager=self.ctx_manager.rsa_key_manager,
                 instance_name=f"{self.pipeline_name}-{self.idx}",
                 machine_type=self.hardware,
             )
         else:
-            # create and run on AWS
-            pass
+            # create and set up on AWS
+            driver = AWSInstanceDriver(
+                rsaKeyManager=self.ctx_manager.rsa_key_manager,
+                zone=self.provider_constraint,
+            )
+            security_group_id, _ = driver.create_security_group()
+            keyname = driver.add_ssh_key()
+            driver.create_instance_ready_for_ssh(
+                keyname=keyname,
+                security_group_id=security_group_id,
+                instancetype=self.hardware,
+            )
+
+    def teardown(self):
+        pass
 
     def run(self):
         pass

@@ -7,7 +7,7 @@ import requests
 from google.cloud import compute_v1
 from google.api_core.extended_operation import ExtendedOperation
 
-from operator import ServerRSAKeyManager
+from cloud_conductor.serverutils import ServerRSAKeyManager
 from cloud_conductor.typelayer import CloudConductorEnum
 
 
@@ -22,6 +22,7 @@ class GCPInstanceDriver:
         self,
         project_id: str,
         api_key: str,
+        rsaKeyManager: ServerRSAKeyManager,
         zone: str = "us-east1-b",
         family: str = "ubuntu-2204-lts",
         image_project: str = "ubuntu-os-cloud",
@@ -31,6 +32,7 @@ class GCPInstanceDriver:
         self.project_id = project_id
         self.api_key = api_key
         self.zone = zone
+        self.rsa_key_manager = rsaKeyManager
 
         self.os_image = GCPInstanceDriver.get_image_from_family(
             project=image_project, family=family
@@ -201,7 +203,6 @@ class GCPInstanceDriver:
     def add_ssh_key(
         self,
         instance_name,
-        keymanager: ServerRSAKeyManager,
         username: str = "gcpuser",
         pubkey: str = None,
     ):
@@ -212,9 +213,9 @@ class GCPInstanceDriver:
 
         # find pubkey or create is none specified
         if pubkey is None:
-            pubkey, privkey = keymanager.create_key()
+            pubkey, privkey = self.rsa_key_manager.create_key()
         else:
-            pubkey, privkey = keymanager.find_key(pubkey)
+            pubkey, privkey = self.rsa_key_manager.find_key(pubkey)
 
         # update instance metadata and return privkey for ssh
         auth = {"Authorization": "Bearer {}".format(self.api_key)}
@@ -233,7 +234,6 @@ class GCPInstanceDriver:
 
     def create_instance_ready_for_ssh(
         self,
-        rsaKeyManager: ServerRSAKeyManager,
         instance_name: str = "",
         machine_type: str = "n1-standard-1",
         network_link: str = "global/networks/default",
@@ -247,7 +247,7 @@ class GCPInstanceDriver:
             external_access,
             accelerators,
         )
-        privkey = self.add_ssh_key(instance_name, rsaKeyManager)
+        privkey = self.add_ssh_key(instance_name)
         return privkey, self.get_instance_ip(instance_name)
 
 
@@ -270,10 +270,17 @@ if __name__ == "__main__":
 
     # init key manager, create instance, and get ip
     rsaKeyManager = ServerRSAKeyManager()
-    gcpDriver = GCPInstanceDriver(family, image_project, project_id, apikey, zone)
+    gcpDriver = GCPInstanceDriver(
+        family=family,
+        image_project=image_project,
+        project_id=project_id,
+        apikey=apikey,
+        zone=zone,
+        rsaKeyManager=rsaKeyManager,
+    )
     gcpDriver.attach_disk_from_size(10)
     instance = gcpDriver.create_instance(instance_name=instance_name)
-    privkey = gcpDriver.add_ssh_key(instance_name, rsaKeyManager)
+    privkey = gcpDriver.add_ssh_key(instance_name=instance_name, username=username)
     print(privkey)
     hostip = gcpDriver.get_instance_ip(instance_name)
     print(hostip)

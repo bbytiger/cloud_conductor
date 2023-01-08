@@ -27,9 +27,18 @@ class ServerRSAKeyManager:
             self.keys_created[public_key] = private_key
         return public_key, private_key
 
+    def add_key(self, pub_id: str, priv_key: str):
+        self.keys_created[pub_id] = priv_key
+        return pub_id, self.keys_created[pub_id]
+
+    def remove_key(self, pub_id: str):
+        if pub_id not in self.keys_created:
+            return None
+        del self.keys_created[pub_id]
+
     def find_key(self, pub_key: str):
         if pub_key not in self.keys_created:
-            raise Exception("Key does not exist.")
+            return None
         return pub_key, self.keys_created[pub_key]
 
 
