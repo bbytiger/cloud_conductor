@@ -4,25 +4,36 @@ from cryptography.hazmat.primitives import serialization as crypto_serialization
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.backends import default_backend as crypto_default_backend
 
-def create_key():
-    key = rsa.generate_private_key(
-        backend=crypto_default_backend(),
-        public_exponent=65537,
-        key_size=2048
-    )
-    private_key = key.private_bytes(
-        crypto_serialization.Encoding.PEM,
-        crypto_serialization.PrivateFormat.PKCS8,
-        crypto_serialization.NoEncryption()
-    )
-    public_key = key.public_key().public_bytes(
-        crypto_serialization.Encoding.OpenSSH,
-        crypto_serialization.PublicFormat.OpenSSH
-    )
-    return str(public_key, 'utf-8'), str(private_key, 'utf-8')
 
-class ServerSSHOperator:
+class ServerRSAKeyManager:
+    def __init__(self):
+        self.keys_created = {}
 
+    def create_key(self, save: bool = True):
+        key = rsa.generate_private_key(
+            backend=crypto_default_backend(), public_exponent=65537, key_size=2048
+        )
+        private_key = key.private_bytes(
+            crypto_serialization.Encoding.PEM,
+            crypto_serialization.PrivateFormat.PKCS8,
+            crypto_serialization.NoEncryption(),
+        )
+        public_key = key.public_key().public_bytes(
+            crypto_serialization.Encoding.OpenSSH,
+            crypto_serialization.PublicFormat.OpenSSH,
+        )
+        public_key, private_key = str(public_key, "utf-8"), str(private_key, "utf-8")
+        if save:
+            self.keys_created[public_key] = private_key
+        return public_key, private_key
+
+    def find_key(self, pub_key: str):
+        if pub_key not in self.keys_created:
+            raise Exception("Key does not exist.")
+        return pub_key, self.keys_created[pub_key]
+
+
+class ServerSSHManager:
     def __init__(self, host, username, privkey_path):
         self.host = host
         self.username = username
